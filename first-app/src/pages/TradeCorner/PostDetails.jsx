@@ -12,7 +12,7 @@ export default function PostDetails() {
 
   //Torna ad Home
   const backToHome = () => {
-    navigate("/");
+    navigate("/tradecorner");
     window.scrollTo(0, 0);
   };
 

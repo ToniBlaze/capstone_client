@@ -32,10 +32,10 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
 
           {/* ROUTE PAGINA "TRADECORNER" */}
-          <Route path="/tradecorner" element={<TradeCorner />} />
+          <Route path="/tradecorner" element={<div className="bg-black"><TradeCorner /></div>} />
           <Route path="/post/:id" element={<PostDetails />} />
           <Route path="/newpost" element={<NewPost />} />
-
+          
           {/* ROUTE PER REGISTER/LOGIN */}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />

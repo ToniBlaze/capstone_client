@@ -26,7 +26,7 @@ export default function Posts() {
   // const dataArray = Object.values(data);
   return (
     <Container>
-      <Row>
+      <Row className="justify-content-center">
         {posts &&
           posts.map((post) => (
             <SinglePost post={post} key={post._id} deletePost={deletePost} />

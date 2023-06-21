@@ -1,16 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Alert, Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function NewPost() {
   const [obj, setObj] = useState({});
   const [selectedFile, setSelectedFile] = useState(null);
+  const [Error, setError] = useState(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    verifyToken();
-  }, []);
 
   // Verifica la presenza del token nel localStorage
   const verifyToken = () => {
@@ -20,9 +17,13 @@ export default function NewPost() {
     }
   };
 
+  useEffect(() => {
+    verifyToken();
+  }, []);
+
   //Torna alla Home
   const backToHome = () => {
-    navigate("/");
+    navigate("/tradecorner");
     window.scrollTo(0, 0);
   };
 
@@ -72,19 +73,21 @@ export default function NewPost() {
           })
           .then((res) => {
             console.log(res.data);
-            navigate("/");
+            navigate("/tradecorner");
           })
           .catch((error) => {
-            console.log(error);
+            setError(error.response.data);
+            console.error(error);
           });
       })
       .catch((error) => {
-        console.log(error);
+        setError(error.response.data);
+        console.error(error);
       });
   };
 
   return (
-    <Container>
+    <Container className="pb-5">
       <Button className="px-3 py-2 my-4 btn-secondary" onClick={backToHome}>
         Back to Home
       </Button>
@@ -135,7 +138,7 @@ export default function NewPost() {
             className="text-center"
             onChange={handleChange}
             type="text"
-            name="titolo"
+            name="title"
             placeholder="Titolo del post..."
           />
         </Form.Group>
@@ -168,6 +171,13 @@ export default function NewPost() {
           type="button">
           Invia
         </Button>
+        {Error ? (
+          <Alert key={"danger"} variant={"danger"}>
+            {Error.error}
+          </Alert>
+        ) : (
+          ""
+        )}
       </Form>
     </Container>
   );
