@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProtectedRoutes from "./middleware/ProtectedRoutes";
 
 // PAGES
 import ErrorPage from "./pages/ErrorPage";
@@ -13,35 +14,32 @@ import Login from "./pages/Login";
 import TradeCorner from "./pages/TradeCorner/TradeCorner";
 import Homepage from "./pages/Homepage";
 import Footer from "./components/Footer";
+import UserPosts from "./components/TradeCornerComponents/UserPosts";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            index
-            element={
-              <>
-                <MyNav />
-                <Homepage />
-                <Footer />
-              </>
-            }
-          />
-          <Route path="*" element={<ErrorPage />} />
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
-          {/* ROUTE PAGINA "TRADECORNER" */}
-          <Route path="/tradecorner" element={<div className="bg-black"><TradeCorner /></div>} />
+          {/* ***  ROTTE PROTETTE  *** */}
+        <Route element={<ProtectedRoutes/>}>
+          <Route path="/tradecorner" element={<TradeCorner />} />
           <Route path="/post/:id" element={<PostDetails />} />
           <Route path="/newpost" element={<NewPost />} />
-          
-          {/* ROUTE PER REGISTER/LOGIN */}
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+          <Route
+                path="/userposts"
+                element={<UserPosts/>}
+              />
+        </Route>
+
+        {/* ***  ROTTA DI ERRORE  *** */}
+        <Route path="*" element={<ErrorPage />} />
+        
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -7,7 +7,6 @@ import SinglePost from "./SinglePost";
 export default function UserPosts({ userId }) {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
-  console.log(userId);
 
   useEffect(() => {
     const getUserPosts = async () => {

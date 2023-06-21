@@ -9,18 +9,6 @@ export default function NewPost() {
   const [Error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Verifica la presenza del token nel localStorage
-  const verifyToken = () => {
-    const token = localStorage.getItem("userLogin");
-    if (!token) {
-      navigate("/login");
-    }
-  };
-
-  useEffect(() => {
-    verifyToken();
-  }, []);
-
   //Torna alla Home
   const backToHome = () => {
     navigate("/tradecorner");
