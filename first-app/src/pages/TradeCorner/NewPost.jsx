@@ -62,12 +62,13 @@ export default function NewPost() {
     e.preventDefault();
     e.stopPropagation();
 
-    // Nel frattempo che fa richiesta mostra SPINNER
-    setIsLoading(true);
-
     // Validazione dei campi
     const { title, content, category, readTime } = obj;
     const newErrors = {};
+
+    if (!selectedFile) {
+      newErrors.file = "Nessun file caricato!";
+    }
 
     if (!readTime) {
       newErrors.readTime = "Inserisci il tempo di lettura!";
@@ -85,6 +86,9 @@ export default function NewPost() {
       setError(newErrors);
       return;
     }
+
+        // Nel frattempo che fa richiesta mostra SPINNER
+        setIsLoading(true);
 
     // Prendi il Token e destrutturalo per trovare dati utente
     const token = localStorage.getItem("userLogin");
@@ -145,7 +149,7 @@ export default function NewPost() {
 
             // Se errore, allora togli SPINNER
             setIsLoading(false);
-            
+
             console.error(error);
           });
       })
@@ -234,6 +238,8 @@ export default function NewPost() {
             placeholder="Carica file..."
           />
         </Form.Group>
+        {Error.file && <Alert variant="danger">{Error.file}</Alert>}
+
 
         {successAlert && (
           <Alert variant="success" className="my-4">
