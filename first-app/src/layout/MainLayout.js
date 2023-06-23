@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React, {children} from 'react'
 import MyNav from '../components/MyNav'
 import Footer from '../components/Footer'
 
