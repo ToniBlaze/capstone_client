@@ -174,7 +174,7 @@ export default function NewPost() {
           <Form.Control
             className="text-center"
             onChange={handleChangeReadTimeValue}
-            type="text"
+            type="number"
             name="value"
             placeholder="Inserisci un numero"
           />
