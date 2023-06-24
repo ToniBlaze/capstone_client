@@ -70,7 +70,10 @@ export default function NewPost() {
       newErrors.file = "Nessun file caricato!";
     }
 
-    if (!readTime) {
+    if (!readTime.value) {
+      newErrors.readTime = "Inserisci il tempo di lettura!";
+    }
+    if (!readTime.unit) {
       newErrors.readTime = "Inserisci il tempo di lettura!";
     }
     if (!title) {
@@ -87,8 +90,8 @@ export default function NewPost() {
       return;
     }
 
-        // Nel frattempo che fa richiesta mostra SPINNER
-        setIsLoading(true);
+    // Nel frattempo che fa richiesta mostra SPINNER
+    setIsLoading(true);
 
     // Prendi il Token e destrutturalo per trovare dati utente
     const token = localStorage.getItem("userLogin");
@@ -131,14 +134,18 @@ export default function NewPost() {
             },
           })
           .then((res) => {
-            console.log(res.data);
-            console.log(newObj);
+            // console.log(res.data);
+            // console.log(newObj);
 
             // Se tutto ok, allora togli SPINNER
             setIsLoading(false);
 
-            // Se tutto ok, allora setta Alert visibile
+            // Se tutto ok, allora setta Alert visibile 
             setSuccessAlert(true);
+
+            // E togli alert Erroe
+            setError("")
+
             setTimeout(() => {
               setSuccessAlert(false);
               navigate("/tradecorner");
@@ -240,11 +247,20 @@ export default function NewPost() {
         </Form.Group>
         {Error.file && <Alert variant="danger">{Error.file}</Alert>}
 
-
+        {/* ALERT DI SUCCESSO */}
         {successAlert && (
           <Alert variant="success" className="my-4">
             Post inserito con successo! Verrei rendirizzato a breve..
           </Alert>
+        )}
+
+          {/* ALERT ERRORE DA BACKEND */}
+        {Error.error ? (
+          <Alert key={"danger"} variant={"danger"}>
+            {Error.error}
+          </Alert>
+        ) : (
+          ""
         )}
 
         {/* Mostra lo spinner durante la richiesta */}

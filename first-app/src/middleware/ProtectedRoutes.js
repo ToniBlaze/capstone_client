@@ -1,30 +1,45 @@
-import React, {useEffect} from 'react'
-import { Outlet, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import Login from '../pages/Login';
+import Login from "../pages/Login";
 
 const useAuth = () => {
-    let token = localStorage.getItem("userLogin")
-    return token
-}
+  let token = localStorage.getItem("userLogin");
+  return token;
+};
 
 const useSession = () => {
-    const session = useAuth()
-    const decodedSession = session ? jwt_decode(session) : null
-    const navigate = useNavigate()
-    useEffect(() => {
-        if (!session) {
-            navigate("/login", {replace: true})
+  const token = useAuth();
+  const navigate = useNavigate();
+  const [decodedSession, setDecodedSession] = useState(null);
+
+  useEffect(() => {
+    const decodeToken = async () => {
+      try {
+        if (token) {
+          const decoded = await jwt_decode(token);
+          setDecodedSession(decoded);
+        } else {
+          navigate("/login", { replace: true });
         }
-    },[navigate,session])
-    return decodedSession
-}
+      } catch (error) {
+        console.log(error);
+        navigate("/login", { replace: true });
+      }
+    };
+
+    decodeToken();
+  }, [navigate, token]);
+
+  return decodedSession;
+};
 
 export default function ProtectedRoutes() {
-  const isAuthorized = useAuth()
-  const session = useSession()
+  const session = useSession();
+  const isAuthorized = !!session;
+
   console.log(session);
   console.log(isAuthorized);
 
-  return isAuthorized ? <Outlet /> : <Login />
+  return isAuthorized ? <Outlet /> : <Login />;
 }

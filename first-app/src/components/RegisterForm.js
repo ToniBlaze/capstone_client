@@ -48,7 +48,7 @@ export default function RegisterForm() {
       </Form.Group>
       <Form.Group className="mb-3" controlId="formAge">
         <Form.Control
-          type="text"
+          type="number"
           name="age"
           placeholder="Enter age"
           onChange={formHandler}
