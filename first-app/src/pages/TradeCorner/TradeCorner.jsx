@@ -10,12 +10,11 @@ export default function TradeCorner() {
   return (
     <Container fluid className="m-0 p-0 bg-black">
       <NavbarBlog />
-      {/* DA SCOMMENTARE MA CONTROLLARE ******
-      <UserPosts /> */}
-
+      
       <Container className="my-5">
         <Row className="d-flex align-items-center justify-content-center">
         <Posts />
+        <UserPosts />
         </Row>
       </Container>
     </Container>

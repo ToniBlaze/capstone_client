@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function SinglePost({ post, deletePost }) {
   
+  console.log(post);
   return (
     <Col className="my-5" xs={11}>
 

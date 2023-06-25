@@ -12,7 +12,7 @@ export default function Login() {
     window.scrollTo(0, 0);
   };
   return (
-    <Container className="my-5 ">
+    <Container className="py-5">
       <Button className="px-3 py-2 my-4 btn-secondary" onClick={backToHome}>
         Back to Home
       </Button>

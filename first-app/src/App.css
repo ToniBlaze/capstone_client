@@ -2,6 +2,14 @@
   text-align: center;
 }
 
+#root, :root {
+ background-color: black;
+}
+
+#home {
+  background-color: white;
+}
+
 .bg-black, html {
   height: 100%;
   padding: 0;
@@ -107,4 +115,11 @@
   background-position: top;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Icona UTENTE */ 
+.user-image {
+  background-color: grey !important;
+  height: 2.6rem;
+  width: 2.6rem;
 }

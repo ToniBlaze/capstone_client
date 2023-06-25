@@ -5,10 +5,9 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 
 export default function NavbarBlog() {
-  let token = localStorage.getItem("userLogin");
 
   function handleLogout() {
-    localStorage.removeItem("userLogin")
+    localStorage.removeItem("userLogin");
   }
 
   return (
@@ -29,18 +28,13 @@ export default function NavbarBlog() {
             </Link>
           </Nav>
 
-          <Nav className="ms-auto">
-            {/* Se presente TOKEN mostra LOGOUT  */}
-            {token ? (
-              <Link className="nav-link" onClick={handleLogout}>
-                Logout
-              </Link>
-            ) : (
-              // Altrimenti mostra LOGIN
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            )}
+          <Nav className="ms-auto d-flex align-items-center justify-content-center">
+            <Link className="nav-link" onClick={handleLogout}>
+              Logout
+            </Link>
+            <Link to="/userposts" className="mx-3 nav-link rounded-circle user-image d-flex justify-content-center align-items-center">
+              <i class="ri-user-fill text-white fs-5"></i>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

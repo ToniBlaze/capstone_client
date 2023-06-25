@@ -96,15 +96,14 @@ export default function NewPost() {
     // Prendi il Token e destrutturalo per trovare dati utente
     const token = localStorage.getItem("userLogin");
     const decodedToken = jwt_decode(token);
-    const author = decodedToken.name;
+    console.log(decodedToken);
+    const author = decodedToken.id;
     console.log(author);
 
     // Aggiungi l'autore all'oggetto dei dati
     const newData = {
       ...obj,
-      author: {
-        name: author,
-      },
+      author: author
     };
 
     // Carica il file su CLOUDINARY

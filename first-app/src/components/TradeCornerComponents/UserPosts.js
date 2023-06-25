@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Container, Row } from "react-bootstrap";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 import SinglePost from "./SinglePost";
 
-export default function UserPosts({ userId }) {
+export default function UserPosts() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getUserPosts = async () => {
+    const token = localStorage.getItem("userLogin");
+    async function getUserPost() {
       try {
-        const response = await axios.get(`http://localhost:3000/posts/user/${userId}`);
-        setPosts(response.data);
-      } catch (error) {
-        if (error.response) {
-          setError(error.response.data);
-        } else {
-          setError("Internal Server Error");
-        }
-      }
-    };
+        const decodedToken = await jwt_decode(token);
+        const userId = decodedToken.id;
 
-    if (userId) {
-      getUserPosts();
-    } else {
-      setError("User ID not found");
+        axios.get(`http://localhost:3000/posts/user/${userId}`).then(
+          (res) => {
+            setPosts(res.data)
+          }
+        )
+
+      } catch (err) {
+        setError(err.response.data);
+      }
     }
-  }, [userId]);
-  
+
+    getUserPost();
+  }, []);
 
   function deletePost(id) {
     axios
@@ -40,10 +40,10 @@ export default function UserPosts({ userId }) {
   }
 
   return (
-    <Container>
+    <Container >
       {error ? (
         <Alert key={"danger"} variant={"danger"}>
-          {error.error}
+          {error}
         </Alert>
       ) : (
         <Row>
