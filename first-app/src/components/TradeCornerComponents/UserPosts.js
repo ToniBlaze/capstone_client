@@ -16,12 +16,9 @@ export default function UserPosts() {
         const decodedToken = await jwt_decode(token);
         const userId = decodedToken.id;
 
-        axios.get(`http://localhost:3000/posts/user/${userId}`).then(
-          (res) => {
-            setPosts(res.data)
-          }
-        )
-
+        axios.get(`http://localhost:3000/posts/user/${userId}`).then((res) => {
+          setPosts(res.data);
+        });
       } catch (err) {
         setError(err.response.data);
       }
@@ -40,7 +37,7 @@ export default function UserPosts() {
   }
 
   return (
-    <Container >
+    <Container>
       {error ? (
         <Alert key={"danger"} variant={"danger"}>
           {error}
