@@ -20,9 +20,9 @@ export default function NavbarBlog() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link className="nav-link px-3" href="#home" active={false}>
+            <Link className="nav-link px-3" to="/tradecorner" active={false}>
               Home
-            </Nav.Link>
+            </Link>
             <Link className="nav-link px-4" to="/newpost">
               New Post
             </Link>

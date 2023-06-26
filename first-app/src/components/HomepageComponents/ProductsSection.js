@@ -9,10 +9,10 @@ export default function ProductsSection() {
           <h2 className="pb-2 border-bottom"> Le nostre proposte</h2>
         </Col>
       </Row>
-      <Row className="justify-content-center">
-        <Col xs={10} md={9} className="d-flex flex-wrap justify-content-around">
-          <Col xs={8} md={4} className="m-4">
-            <Card className="bg-dark text-white p-5">
+      <Row className="align-items-center justify-content-center pt-3">
+        <Col xs={12} md={10} className="d-flex flex-wrap justify-content-around">
+          <Col xs={10} sm={8} lg={5} className="m-4">
+            <Card className="tridens-bg text-white p-5 d-flex justify-content-center rounded-4">
               <Card.Title>Tridens</Card.Title>
               <Card.Text>
                 This is a wider card with supporting text below as a natural
@@ -21,8 +21,8 @@ export default function ProductsSection() {
               </Card.Text>
             </Card>
           </Col>
-          <Col xs={8} md={4} className="m-4">
-            <Card className="bg-dark text-white p-5">
+          <Col xs={10} sm={8} lg={5} className="m-4">
+            <Card className="fidelis-bg text-white p-5 d-flex justify-content-center rounded-4">
               <Card.Title>Fidelis</Card.Title>
               <Card.Text>
                 This is a wider card with supporting text below as a natural

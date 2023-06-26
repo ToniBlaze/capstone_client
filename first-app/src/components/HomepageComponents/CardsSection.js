@@ -15,7 +15,7 @@ export default function CardsSection() {
 
           <Row className="row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
             <Col>
-              <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+              <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 cards-shadow">
                 <Card.Body className="d-flex flex-column h-100 p-5 text-white text-shadow-1 justify-content-center align-items-center">
                   <Card.Title as="h3" className="display-7 lh-1 fw-bold">
                     Le emozioni...
@@ -25,7 +25,7 @@ export default function CardsSection() {
             </Col>
 
             <Col>
-              <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+              <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 cards-shadow">
                 <Card.Body className="d-flex flex-column h-100 p-5 text-white text-shadow-1 justify-content-center align-items-center">
                   <Card.Title as="h3" className="display-7 lh-1 fw-bold">
                     Il 95% dei Trader perde soldi...
@@ -35,7 +35,7 @@ export default function CardsSection() {
             </Col>
 
             <Col>
-              <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+              <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 cards-shadow">
                 <Card.Body className="d-flex flex-column h-100 p-5 text-shadow-1 justify-content-center align-items-center">
                   <Card.Title as="h3" className="display-7 lh-1 fw-bold">
                     Il tempo a grafico...
