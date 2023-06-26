@@ -46,7 +46,7 @@ export default function UserPosts() {
           {error}
         </Alert>
       ) : (
-        <Row>
+        <Row className="justify-content-center">
           {posts &&
             posts.map((post) => (
               <SinglePost post={post} key={post._id} deletePost={deletePost} />

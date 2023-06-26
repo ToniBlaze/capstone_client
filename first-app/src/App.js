@@ -11,8 +11,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import TradeCorner from "./pages/TradeCorner/TradeCorner";
 import Homepage from "./pages/Homepage";
-import UserPosts from "./components/TradeCornerComponents/UserPosts";
 import NewPost from "./pages/TradeCorner/NewPost";
+import UserPostsLayout from "./layout/UserPostsLayout";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
           <Route path="/tradecorner" element={<TradeCorner />} />
           <Route path="/post/:id" element={<PostDetails />} />
           <Route path="/newpost" element={<NewPost />} />
-          <Route path="/userposts" element={<UserPosts/>} />
+          <Route path="/userposts" element={<UserPostsLayout />} />
         </Route>
 
         {/* ***  ROTTA DI ERRORE  *** */}
