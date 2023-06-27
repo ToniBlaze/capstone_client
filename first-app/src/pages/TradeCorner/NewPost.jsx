@@ -27,30 +27,6 @@ export default function NewPost() {
     });
   };
 
-  // Gestore del cambio di input per readTime.value
-  const handleChangeReadTimeValue = (e) => {
-    const { name, value } = e.target;
-    setObj({
-      ...obj,
-      readTime: {
-        ...obj.readTime,
-        [name]: value,
-      },
-    });
-  };
-
-  // Gestore del cambio di input per readTime.unit
-  const handleChangeReadTimeUnit = (e) => {
-    const { name, value } = e.target;
-    setObj({
-      ...obj,
-      readTime: {
-        ...obj.readTime,
-        [name]: value,
-      },
-    });
-  };
-
   // Gestore del cambio di file
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -63,19 +39,13 @@ export default function NewPost() {
     e.stopPropagation();
 
     // Validazione dei campi
-    const { title, content, category, readTime } = obj;
+    const { title, content, category } = obj;
     const newErrors = {};
 
     if (!selectedFile) {
       newErrors.file = "Nessun file caricato!";
     }
 
-    if (!readTime.value) {
-      newErrors.readTime = "Inserisci il tempo di lettura!";
-    }
-    if (!readTime.unit) {
-      newErrors.readTime = "Inserisci il tempo di lettura!";
-    }
     if (!title) {
       newErrors.title = "Inserisci un titolo!";
     }
@@ -103,7 +73,7 @@ export default function NewPost() {
     // Aggiungi l'autore all'oggetto dei dati
     const newData = {
       ...obj,
-      author: author
+      author: author,
     };
 
     // Carica il file su CLOUDINARY
@@ -113,7 +83,7 @@ export default function NewPost() {
       .post("http://localhost:3000/upload", data, {
         headers: {
           authorization: token,
-        }
+        },
       })
       .then((res) => {
         // *************
@@ -139,11 +109,11 @@ export default function NewPost() {
             // Se tutto ok, allora togli SPINNER
             setIsLoading(false);
 
-            // Se tutto ok, allora setta Alert visibile 
+            // Se tutto ok, allora setta Alert visibile
             setSuccessAlert(true);
 
             // E togli alert Erroe
-            setError("")
+            setError("");
 
             setTimeout(() => {
               setSuccessAlert(false);
@@ -175,25 +145,6 @@ export default function NewPost() {
       </Button>
       <h1 className="mt-2 mb-5">Aggiungi il tuo Post</h1>
       <Form>
-        <Form.Group className="mb-3">
-          <Form.Label className="mt-4 mb-2">Tempo di lettura?</Form.Label>
-          <Form.Control
-            className="text-center"
-            onChange={handleChangeReadTimeValue}
-            type="number"
-            name="value"
-            placeholder="Inserisci un numero"
-          />
-          <Form.Control
-            className="text-center"
-            onChange={handleChangeReadTimeUnit}
-            type="text"
-            name="unit"
-            placeholder="Secondi, minuti..."
-          />
-        </Form.Group>
-        {Error.readTime && <Alert variant="danger">{Error.readTime}</Alert>}
-
         <Form.Group className="mb-3">
           <Form.Label className="mt-4 mb-2">Che argomento tratta?</Form.Label>
           <Form.Control
@@ -253,7 +204,7 @@ export default function NewPost() {
           </Alert>
         )}
 
-          {/* ALERT ERRORE DA BACKEND */}
+        {/* ALERT ERRORE DA BACKEND */}
         {Error.error ? (
           <Alert key={"danger"} variant={"danger"}>
             {Error.error}
