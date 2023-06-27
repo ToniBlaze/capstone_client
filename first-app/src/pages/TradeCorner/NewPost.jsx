@@ -113,7 +113,7 @@ export default function NewPost() {
       .post("http://localhost:3000/upload", data, {
         headers: {
           authorization: token,
-        },
+        }
       })
       .then((res) => {
         // *************

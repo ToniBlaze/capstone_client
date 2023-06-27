@@ -28,17 +28,10 @@ html {
 
 /* BOTTONE JUMBO */
 .btn-jumbo {
-  font-size: 1.2rem;
-  padding: 1rem 2.5rem;
-  border: none;
-  outline: none;
-  border-radius: 0.4rem;
-  cursor: pointer;
   text-transform: uppercase;
   background-color: rgb(0, 0, 0) !important;
-  color: rgb(234, 234, 234);
-  font-weight: 700;
-  transition: 0.7s !important;
+
+  transition: 0.8s !important;
   box-shadow: 0px 0px 60px #949494;
   -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
 }
