@@ -17,9 +17,15 @@ export default function UserPosts() {
         const userId = decodedToken.id;
 
         axios.get(`http://localhost:3000/posts/user/${userId}`).then((res) => {
-          setPosts(res.data);
+          const Posts = res.data;
+          if (Posts.length === 0) {
+            setError("There aren't any posts!");
+          } else {
+            setPosts(Posts);
+          }
         });
       } catch (err) {
+        console.log(err.response.data.error);
         setError(err.response.data);
       }
     }
