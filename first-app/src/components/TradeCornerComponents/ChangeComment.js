@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import jwt_decode from "jwt-decode";
 
 export default function ChangeComment({ postId, commentId, setCommentsCount, item }) {
   const [show, setShow] = useState(false);
@@ -35,8 +36,20 @@ export default function ChangeComment({ postId, commentId, setCommentsCount, ite
     e.preventDefault();
     e.stopPropagation();
 
+        // Prendi il Token e destrutturalo per trovare dati utente
+    const token = localStorage.getItem("userLogin");
+    const decodedToken = jwt_decode(token);
+    const author = decodedToken.id;
+
+        // Aggiungi l'autore all'oggetto dei dati
+    const newData = {
+      ...obj,
+      author: author,
+    };
+    console.log(newData);
+
     axios
-      .put(`http://localhost:3000/posts/${postId}/comments/${commentId}`, obj)
+      .put(`http://localhost:3000/posts/${postId}/comments/${commentId}`, newData)
       .then((res) => {
         console.log(res);
         setCommentsCount((prevCount) => prevCount + 1);
@@ -65,18 +78,7 @@ export default function ChangeComment({ postId, commentId, setCommentsCount, ite
 
           {/* FORM */}
           <Form className="text-center" onSubmit={handleSubmit}>
-            <Form.Group className="mb-3 text-center">
-              <Form.Label>Autore:</Form.Label>
-              <Form.Control
-                className="input-text"
-                type="text"
-                name="author"
-                placeholder={item.author}
-                onChange={handlerChange}
-                onClick={(e) => e.stopPropagation()}
-              />
-            </Form.Group>
-
+            
             <Form.Group className="mb-3 input-number">
               <Form.Label>Scrivi il tuo commento: </Form.Label>
               <Form.Control
