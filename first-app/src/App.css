@@ -57,18 +57,17 @@ html {
 
 /* ALTRI BOTTONI */
 
-.btn-custom {
-  font-size: 1.2rem;
-  padding: 1rem 2.5rem;
+.btn-custom  {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  letter-spacing: 2px !important;
+  color: #3cb1ff !important;
+  background-color: #000000 !important;
   border: none;
-  outline: none;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  background-color: rgb(14, 14, 26) !important;
-  color: rgb(234, 234, 234);
-  font-weight: 700;
-  transition: 0.8s !important;
-  box-shadow: 0px 0px 60px #858585;
+  border-radius: 45px!important;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s ease 0s !important;
+  outline: none !important;
 }
 
 .btn-custom:active {
@@ -76,9 +75,10 @@ html {
 }
 
 .btn-custom:hover {
-  background: rgb(2,29,78);
-  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
-  color: rgb(4, 4, 38);
+  background-color: #1ea5ff !important;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4)!important;
+  color: #000000 !important;
+  transform: translateY(-7px);
 }
 
 /* FINE BOTTONI */

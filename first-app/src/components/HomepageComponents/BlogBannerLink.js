@@ -24,10 +24,10 @@ export default function BlogBannerLink() {
             opportunità del mercato e a creare connessioni durature. <br />
             Entra a far parte di TradeCorner oggi stesso!
           </p>
-          <div className="d-grid gap-2 d-md-flex justify-content-md-center pt-3">
+          <div className=" d-md-flex justify-content-md-center pt-3">
             <button
               type="button"
-              className="btn btn-primary btn-lg px-4 me-md-2 fw-bold btn-custom"
+              className="btn btn-lg px-4 me-md-2 fw-bold btn-custom"
               onClick={handleClick}>
               Vai a TradeCorner!
             </button>
