@@ -32,15 +32,6 @@ export default function Posts() {
       });
   }, []);
 
-  function deletePost(id) {
-    axios
-      .delete(`http://localhost:3000/posts/${id}`)
-      .then((res) => {
-        setPosts(posts.filter((p) => p._id !== id));
-      })
-      .catch((err) => console.log(err));
-  }
-
 
   return (
     <Container>
@@ -52,7 +43,7 @@ export default function Posts() {
         ) : (
           posts &&
           posts.map((post) => (
-            <SinglePost post={post} key={post._id} deletePost={deletePost} />
+            <SinglePost post={post} key={post._id} />
           ))
         )}
       </Row>

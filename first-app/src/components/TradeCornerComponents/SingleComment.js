@@ -8,7 +8,7 @@ export default function SingleComment({ item, key, postId, deleteComment, setCom
         <Row className="border-custom py-2 comments-border flex-wrap">
           <Col xs={12} md={9} className="d-flex align-items-center">
             <Col>
-              Autore: <b className="text-secondary">{item.author}</b>
+              Autore: <b className="text-secondary">{item.author.name}</b>
             </Col>
             <Col>
               Commento: <b className="text-secondary">"{item.content}"</b>

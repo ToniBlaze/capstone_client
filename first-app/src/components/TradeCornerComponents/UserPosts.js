@@ -3,7 +3,7 @@ import { Alert, Container, Row } from "react-bootstrap";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
-import SinglePost from "./SinglePost";
+import UserSinglePosts from "./UserSinglePosts";
 
 export default function UserPosts() {
   const [posts, setPosts] = useState([]);
@@ -52,7 +52,7 @@ export default function UserPosts() {
         <Row className="justify-content-center">
           {posts &&
             posts.map((post) => (
-              <SinglePost post={post} key={post._id} deletePost={deletePost} />
+              <UserSinglePosts post={post} key={post._id} deletePost={deletePost} />
             ))}
         </Row>
       )}

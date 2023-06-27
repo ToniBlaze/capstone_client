@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 
-export default function SinglePost({ post }) {
+export default function SinglePost({ post, deletePost }) {
   
   return (
     <Col className="my-5" xs={11}>
@@ -35,6 +35,9 @@ export default function SinglePost({ post }) {
               to={`/post/${post._id}`}>
               <Button variant="primary mx-3">Leggi post</Button>
             </Link>
+            <Button variant="danger" onClick={() => deletePost(post._id)}>
+              Elimina
+            </Button>
           </Card.Body>
         </Col>
       </Card>

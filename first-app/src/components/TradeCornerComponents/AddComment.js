@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import jwt_decode from "jwt-decode";
 
 export default function AddComment({ postId, setCommentsCount }) {
   const [show, setShow] = useState(false);
@@ -35,15 +36,23 @@ export default function AddComment({ postId, setCommentsCount }) {
     e.preventDefault();
     e.stopPropagation();
 
-    axios
-      .post(`http://localhost:3000/posts/${postId}`, obj)
-      .then((res) => {
-        console.log(res);
-        setCommentsCount((prevCount) => prevCount + 1);
-        handleClose();
-      });
+    // Prendi il Token e destrutturalo per trovare dati utente
+    const token = localStorage.getItem("userLogin");
+    const decodedToken = jwt_decode(token);
+    const author = decodedToken.id;
 
-   
+    // Aggiungi l'autore all'oggetto dei dati
+    const newData = {
+      ...obj,
+      author: author,
+    };
+    console.log(newData);
+
+    axios.post(`http://localhost:3000/posts/${postId}`, newData).then((res) => {
+      console.log(res);
+      setCommentsCount((prevCount) => prevCount + 1);
+      handleClose();
+    });
   }
 
   return (
@@ -61,22 +70,8 @@ export default function AddComment({ postId, setCommentsCount }) {
         <Modal.Body
           className="d-flex justify-content-center"
           onClick={(e) => e.stopPropagation()}>
-
-
           {/* FORM */}
           <Form className="text-center" onSubmit={handleSubmit}>
-            <Form.Group className="mb-3 text-center">
-              <Form.Label>Autore:</Form.Label>
-              <Form.Control
-                className="input-text"
-                type="text"
-                name="author"
-                placeholder="autore commento"
-                onChange={handlerChange}
-                onClick={(e) => e.stopPropagation()}
-              />
-            </Form.Group>
-
             <Form.Group className="mb-3 input-number">
               <Form.Label>Scrivi il tuo commento: </Form.Label>
               <Form.Control
@@ -107,5 +102,3 @@ export default function AddComment({ postId, setCommentsCount }) {
     </div>
   );
 }
-
-
