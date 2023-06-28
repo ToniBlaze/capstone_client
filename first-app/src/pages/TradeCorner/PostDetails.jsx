@@ -52,12 +52,15 @@ export default function PostDetails() {
                     alt="img-post"
                   />
                 </Col>
-                <Col sm={7}>
+                <Col sm={7} className="text-secondary">
                   <h4 className="mt-3">
-                    Autore: <b>{post.author.name}</b>
+                    Autore: <b className="text-white">{post.author.name}</b>
                   </h4>
                   <h4 className="mt-3">
-                    Categoria: <b>{post.category}</b>
+                    Categoria: <b className="text-white">{post.category}</b>
+                  </h4>
+                  <h4 className="mt-3">
+                    Asset: <b className="text-white">{post.asset}</b>
                   </h4>
 
                   <p className="text-secondary mt-3">

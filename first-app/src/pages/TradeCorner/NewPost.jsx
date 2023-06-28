@@ -39,13 +39,12 @@ export default function NewPost() {
     e.stopPropagation();
 
     // Validazione dei campi
-    const { title, content, category } = obj;
+    const { title, content, category, asset } = obj;
     const newErrors = {};
 
     if (!selectedFile) {
       newErrors.file = "Nessun file caricato!";
     }
-
     if (!title) {
       newErrors.title = "Inserisci un titolo!";
     }
@@ -54,6 +53,9 @@ export default function NewPost() {
     }
     if (!category) {
       newErrors.category = "Inserisci la categoria del post!";
+    }
+    if (!asset) {
+      newErrors.asset = "Inserisci un asset!";
     }
     if (Object.keys(newErrors).length > 0) {
       setError(newErrors);
@@ -103,17 +105,14 @@ export default function NewPost() {
             },
           })
           .then((res) => {
-            // console.log(res.data);
-            // console.log(newObj);
+            // togli alert Erroe
+            setError("");
 
             // Se tutto ok, allora togli SPINNER
             setIsLoading(false);
 
             // Se tutto ok, allora setta Alert visibile
             setSuccessAlert(true);
-
-            // E togli alert Erroe
-            setError("");
 
             setTimeout(() => {
               setSuccessAlert(false);
@@ -147,19 +146,34 @@ export default function NewPost() {
       <Form>
         <Form.Group className="mb-3">
           <Form.Label className="mt-4 mb-2">Che argomento tratta?</Form.Label>
-          <Form.Control
-            className="text-center"
-            onChange={handleChange}
-            type="text"
-            name="category"
-            placeholder="Categoria del post..."
-          />
+          <Form.Select name="category" onChange={handleChange}>
+            <option>Scegli una categoria</option>
+            <option value="Stocks">Stocks</option>
+            <option value="Index">Index</option>
+            <option value="Forex">Forex</option>
+            <option value="Crypto">Crypto</option>
+            <option value="Bond">Bond</option>
+          </Form.Select>
         </Form.Group>
         {Error.category && <Alert variant="danger">{Error.category}</Alert>}
 
         <Form.Group className="mb-3">
           <Form.Label className="mt-4 mb-2">
-            Quale è il titolo del Post?
+            Quale Asset stai analizzando?
+          </Form.Label>
+          <Form.Control
+            className="text-center"
+            onChange={handleChange}
+            type="text"
+            name="asset"
+            placeholder="Asset..."
+          />
+        </Form.Group>
+        {Error.asset && <Alert variant="danger">{Error.asset}</Alert>}
+
+        <Form.Group className="mb-3">
+          <Form.Label className="mt-4 mb-2">
+            Qual'è il titolo del Post?
           </Form.Label>
           <Form.Control
             className="text-center"

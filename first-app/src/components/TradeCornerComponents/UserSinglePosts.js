@@ -29,6 +29,9 @@ export default function SinglePost({ post, deletePost }) {
               <p>
                 Autore: <b>{post.author.name}</b>
               </p>
+              <p>
+                Asset: <b>{post.asset}</b>
+              </p>
             </Card.Text>
             <Link
               className="text-decoration-none text-light"
