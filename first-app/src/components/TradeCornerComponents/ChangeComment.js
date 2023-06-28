@@ -1,15 +1,23 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal, Form, Alert } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
 
-export default function ChangeComment({ postId, commentId, setCommentsCount, item }) {
+export default function ChangeComment({
+  postId,
+  commentId,
+  setCommentsCount,
+  item,
+}) {
   const [show, setShow] = useState(false);
   const [obj, setObj] = useState({});
+  const [error, setError] = useState(null);
 
   // CHIUSURA MODALE
   function handleClose(e) {
     setShow(false);
+    setObj({});
+    setError(null);
   }
 
   //APERTURA DEL MODALE
@@ -36,12 +44,18 @@ export default function ChangeComment({ postId, commentId, setCommentsCount, ite
     e.preventDefault();
     e.stopPropagation();
 
-        // Prendi il Token e destrutturalo per trovare dati utente
+    // Verifica presenza "content"
+    if (!obj.content) {
+      setError("Inserisci commento!");
+      return;
+    }
+
+    // Prendi il Token e destrutturalo per trovare dati utente
     const token = localStorage.getItem("userLogin");
     const decodedToken = jwt_decode(token);
     const author = decodedToken.id;
 
-        // Aggiungi l'autore all'oggetto dei dati
+    // Aggiungi l'autore all'oggetto dei dati
     const newData = {
       ...obj,
       author: author,
@@ -49,19 +63,20 @@ export default function ChangeComment({ postId, commentId, setCommentsCount, ite
     console.log(newData);
 
     axios
-      .put(`http://localhost:3000/posts/${postId}/comments/${commentId}`, newData)
+      .put(
+        `http://localhost:3000/posts/${postId}/comments/${commentId}`,
+        newData
+      )
       .then((res) => {
         console.log(res);
         setCommentsCount((prevCount) => prevCount + 1);
         handleClose();
       });
-
-   
   }
 
   return (
     <div>
-      <Button className="ms-3" variant="primary" onClick={handleShow}>
+      <Button className="ms-3 btn-sm" variant="primary" onClick={handleShow}>
         Modifica
       </Button>
 
@@ -74,22 +89,22 @@ export default function ChangeComment({ postId, commentId, setCommentsCount, ite
         <Modal.Body
           className="d-flex justify-content-center"
           onClick={(e) => e.stopPropagation()}>
-
-
           {/* FORM */}
-          <Form className="text-center" onSubmit={handleSubmit}>
-            
-            <Form.Group className="mb-3 input-number">
+          <Form className="text-center w-100" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
               <Form.Label>Scrivi il tuo commento: </Form.Label>
               <Form.Control
-                className="input-text"
-                type="text"
+                className="input-text w-100"
+                as="textarea"
+                maxLength={100}
                 name="content"
                 placeholder={item.content}
                 onChange={handlerChange}
                 onClick={(e) => e.stopPropagation()}
               />
             </Form.Group>
+            {error && <Alert variant="danger">{error}</Alert>}
+
             <Button
               className="mt-2"
               variant="primary"
@@ -109,5 +124,3 @@ export default function ChangeComment({ postId, commentId, setCommentsCount, ite
     </div>
   );
 }
-
-

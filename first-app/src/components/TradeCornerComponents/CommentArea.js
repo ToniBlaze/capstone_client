@@ -46,7 +46,7 @@ export default function CommentArea({ id }) {
           />
         ))
       ) : (
-        <p>Non ci sono commenti.</p>
+        <p className="pt-5 text-white fs-3">Non ci sono commenti.</p>
       )}
     </div>
   );

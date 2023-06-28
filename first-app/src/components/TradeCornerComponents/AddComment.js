@@ -1,15 +1,18 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, Modal, Form, Alert } from "react-bootstrap";
 import jwt_decode from "jwt-decode";
 
 export default function AddComment({ postId, setCommentsCount }) {
   const [show, setShow] = useState(false);
   const [obj, setObj] = useState({});
+  const [error, setError] = useState(null);
 
   // CHIUSURA MODALE
   function handleClose(e) {
     setShow(false);
+    setObj({});
+    setError(null);
   }
 
   //APERTURA DEL MODALE
@@ -36,6 +39,12 @@ export default function AddComment({ postId, setCommentsCount }) {
     e.preventDefault();
     e.stopPropagation();
 
+    // Verifica presenza "content"
+    if (!obj.content) {
+      setError("Inserisci commento!");
+      return;
+    }
+
     // Prendi il Token e destrutturalo per trovare dati utente
     const token = localStorage.getItem("userLogin");
     const decodedToken = jwt_decode(token);
@@ -46,7 +55,6 @@ export default function AddComment({ postId, setCommentsCount }) {
       ...obj,
       author: author,
     };
-    console.log(newData);
 
     axios.post(`http://localhost:3000/posts/${postId}`, newData).then((res) => {
       console.log(res);
@@ -64,25 +72,28 @@ export default function AddComment({ postId, setCommentsCount }) {
       {/* MODALE */}
       <Modal show={show} onClick={handleClose}>
         <Modal.Header onClick={(e) => e.stopPropagation()}>
-          <Modal.Title>Modifica commento</Modal.Title>
+          <Modal.Title>Aggiungi commento</Modal.Title>
         </Modal.Header>
 
         <Modal.Body
           className="d-flex justify-content-center"
           onClick={(e) => e.stopPropagation()}>
           {/* FORM */}
-          <Form className="text-center" onSubmit={handleSubmit}>
-            <Form.Group className="mb-3 input-number">
+          <Form className="text-center w-100" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
               <Form.Label>Scrivi il tuo commento: </Form.Label>
               <Form.Control
-                className="input-text"
-                type="text"
+                className="input-text w-100"
+                as="textarea"
+                maxLength={100}
                 name="content"
-                placeholder="scrivi commento.."
+                placeholder="Esprimi la tua opinione!"
                 onChange={handlerChange}
                 onClick={(e) => e.stopPropagation()}
               />
             </Form.Group>
+            {error && <Alert variant="danger">{error}</Alert>}
+
             <Button
               className="mt-2"
               variant="primary"
