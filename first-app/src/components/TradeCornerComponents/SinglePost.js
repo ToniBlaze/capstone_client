@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function SinglePost({ post }) {
   
   return (
-    <Col className="my-5" xs={11}>
+    <Col className="my-5 mx-auto" xs={11}>
       <Card className="d-flex flex-row flex-wrap justify-content-center border-0 rounded-4 overflow-hidden">
         <Col
           xs={12}
