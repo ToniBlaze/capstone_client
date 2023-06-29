@@ -147,7 +147,7 @@ export default function NewPost() {
         <Form.Group className="mb-3">
           <Form.Label className="mt-4 mb-2">Che argomento tratta?</Form.Label>
           <Form.Select name="category" onChange={handleChange}>
-            <option>Scegli una categoria</option>
+            <option value="" >Scegli una categoria</option>
             <option value="Stocks">Stocks</option>
             <option value="Index">Index</option>
             <option value="Forex">Forex</option>
