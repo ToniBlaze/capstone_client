@@ -1,17 +1,29 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Button, Modal, Form, Container, Row, Col, Alert } from "react-bootstrap";
+import {
+  Button,
+  Modal,
+  Form,
+  Container,
+  Row,
+  Col,
+  Alert,
+  Spinner,
+} from "react-bootstrap";
 
 export default function Newsletter() {
   const [show, setShow] = useState(false);
   const [obj, setObj] = useState({});
   const [error, setError] = useState(null);
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
   // CHIUSURA MODALE
   function handleClose(e) {
     setShow(false);
     setObj({});
     setError(null);
+    setMessage("");
   }
 
   //APERTURA DEL MODALE
@@ -37,14 +49,33 @@ export default function Newsletter() {
     e.stopPropagation();
 
     // Verifica presenza "content"
-    if (!obj.content) {
+    if (!obj.to) {
       setError("Email mancante!");
       return;
     }
 
-    axios.post(`http://localhost:3000/mail`, obj).then((res) => {
-      handleClose();
-    });
+    setLoading(true);
+
+    axios
+      .post(`http://localhost:3000/mail`, obj)
+      .then((res) => {
+        setLoading(false);
+        setError(null);
+        setMessage(res.data.message);
+        setTimeout(() => {
+          handleClose();
+        }, 1000);
+      })
+      .catch((error) => {
+        setLoading(false);
+        if (error.response) {
+          setError(error.response.data.message);
+        } else if (error.request) {
+          setError("Errore di connessione. Riprova più tardi.");
+        } else {
+          setError("Errore durante l'invio della richiesta.");
+        }
+      });
   }
 
   return (
@@ -54,7 +85,7 @@ export default function Newsletter() {
           <Col className="d-flex align-items-center justify-content-center">
             <div>
               <h3 className="fw-bold text-light mb-3">
-                Vuoi rimanere aggiornato?{" "}
+                Vuoi rimanere aggiornato?
               </h3>
               <span className="fs-5 fw-bold text-light">
                 Iscriviti alla Newsletter!
@@ -120,15 +151,26 @@ export default function Newsletter() {
                 onClick={(e) => e.stopPropagation()}
               />
             </Form.Group>
-            {error && <Alert variant="danger">{error}</Alert>}
 
-            <Button
-              className="mt-2"
-              variant="primary"
-              type="submit"
-              onClick={handleSubmit}>
-              Invia
-            </Button>
+            {/* Spinner e messaggi */}
+            {loading ? (
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            ) : (
+              <>
+                {error && <Alert variant="danger">{error}</Alert>}
+                {message && <Alert variant="success">{message}</Alert>}
+
+                <Button
+                  className="mt-2"
+                  variant="primary"
+                  type="submit"
+                  onClick={handleSubmit}>
+                  Invia
+                </Button>
+              </>
+            )}
           </Form>
         </Modal.Body>
 
