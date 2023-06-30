@@ -13,15 +13,15 @@ export default function Register() {
   };
 
   return (
-    <Container className="my-5 ">
-      <Button className="px-3 py-2 my-4 btn-secondary" onClick={backToHome}>
+    <Container className="my-2 ">
+      <Button className="px-3 py-2 mt-3 mb-5 btn-secondary" onClick={backToHome}>
         Back to Home
       </Button>
       <Row className="d-flex justify-content-center">
       <Col xs={12} lg={8} className="my-3"> 
-        <h1>Registrati</h1>
+        <h1 className="text-white">Sign In</h1>
       </Col>
-      <Col xs={12} lg={8}>
+      <Col xs={11} sm={8} md={6} lg={5}>
         <RegisterForm />
       </Col>
     </Row>

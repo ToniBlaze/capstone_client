@@ -78,11 +78,6 @@ export default function RegisterForm() {
           onChange={formHandler}
         />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formButton">
-        <Button variant="dark" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Form.Group>
       {Error ? (
         <Alert key={"danger"} variant={"danger"}>
           {Error.error}
@@ -90,6 +85,11 @@ export default function RegisterForm() {
       ) : (
         ""
       )}
+      <Form.Group className="my-4" controlId="formButton">
+        <Button variant="dark" onClick={handleSubmit}>
+          Submit
+        </Button>
+      </Form.Group>
     </Form>
   );
 }

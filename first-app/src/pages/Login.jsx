@@ -12,12 +12,12 @@ export default function Login() {
     window.scrollTo(0, 0);
   };
   return (
-    <Container className="py-5">
-      <Button className="px-3 py-2 my-4 btn-secondary" onClick={backToHome}>
+    <Container className="py-2">
+      <Button className="px-3 py-2 mt-3 mb-5 btn-secondary" onClick={backToHome}>
         Back to Home
       </Button>
       <Row className="d-flex justify-content-center">
-        <Col xs={12} lg={8}>
+        <Col xs={11} sm={8} md={6} lg={5}>
           <FormLogin />
         </Col>
       </Row>

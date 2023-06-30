@@ -30,9 +30,9 @@ export default function FormLogin() {
 
   return (
     <>
-      <h1>Login</h1>
+      <h1 className="text-white">Login</h1>
       <Form className="my-3">
-        <Form.Group className="mb-3" controlId="formEmail">
+        <Form.Group className="my-4" controlId="formEmail">
           <Form.Control
             type="email"
             name="email"
@@ -40,18 +40,13 @@ export default function FormLogin() {
             onChange={formHandler}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formPassword">
+        <Form.Group className="mb-4" controlId="formPassword">
           <Form.Control
             type="password"
             name="password"
             placeholder="Enter password"
             onChange={formHandler}
           />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formButton">
-          <Button variant="dark" onClick={handleSubmit}>
-            Login
-          </Button>
         </Form.Group>
         {Error ? (
           <Alert key={"danger"} variant={"danger"}>
@@ -60,6 +55,12 @@ export default function FormLogin() {
         ) : (
           ""
         )}
+        <Form.Group className="my-4" controlId="formButton">
+          <Button variant="dark" onClick={handleSubmit}>
+            Login
+          </Button>
+        </Form.Group>
+        
       </Form>
     </>
   );

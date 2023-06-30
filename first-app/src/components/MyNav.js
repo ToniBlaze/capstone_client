@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
+import Image from "react-bootstrap/Image";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+
+import logo from "../assets/Logo.png";
 
 export default function MyNav() {
   const [token, setToken] = useState(localStorage.getItem("userLogin"));
@@ -13,11 +16,20 @@ export default function MyNav() {
   }
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="sticky-top">
+    <Navbar
+      bg="black"
+      variant="dark"
+      expand="lg"
+      className="sticky-top custom-navbar">
       <Container>
-        <Navbar.Brand className="me-4" href="/">
-          Limit-Logo
+        <Navbar.Brand
+          className="me-4 p-0"
+          href="/">
+          <div className=" logo-container d-flex justify-content-center align-items-center">
+            <Image src={logo} className="img-fluid" alt="Logo" />
+          </div>
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

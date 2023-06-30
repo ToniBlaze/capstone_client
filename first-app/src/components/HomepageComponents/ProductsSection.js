@@ -9,9 +9,8 @@ export default function ProductsSection() {
           <h2 className="pb-2 border-bottom"> Le nostre proposte</h2>
         </Col>
       </Row>
-      <Row className="align-items-center justify-content-center pt-3">
-        <Col xs={12} md={10} className="d-flex flex-wrap justify-content-around">
-          <Col xs={10} sm={8} lg={5} className="m-4">
+      <Row className="align-items-center justify-content-center pt-3 px-md-5">
+          <Col xs={12} sm={9} md={8} lg={5} xxl={4} className="m-4">
             <Card className="tridens-bg text-white p-5 d-flex justify-content-center rounded-4">
               <Card.Title>Tridens</Card.Title>
               <Card.Text>
@@ -21,7 +20,7 @@ export default function ProductsSection() {
               </Card.Text>
             </Card>
           </Col>
-          <Col xs={10} sm={8} lg={5} className="m-4">
+          <Col xs={12} sm={9} md={8} lg={5} xxl={4} className="m-4">
             <Card className="fidelis-bg text-white p-5 d-flex justify-content-center rounded-4">
               <Card.Title>Fidelis</Card.Title>
               <Card.Text>
@@ -31,7 +30,7 @@ export default function ProductsSection() {
               </Card.Text>
             </Card>
           </Col>
-        </Col>
+      
       </Row>
     </Container>
   );
