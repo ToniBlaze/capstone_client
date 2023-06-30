@@ -68,8 +68,7 @@ export default function UserPosts() {
               <p style={{ textAlign: "center" }}>
                 <b className="text-primary">You have seen all posts!</b>
               </p>
-            }
-          >
+            }>
             {posts &&
               posts.map((post) => (
                 <UserSinglePosts
