@@ -56,7 +56,7 @@ export default function FormLogin() {
           ""
         )}
         <Form.Group className="my-4" controlId="formButton">
-          <Button variant="dark" onClick={handleSubmit}>
+          <Button className="btn-submit-form" onClick={handleSubmit}>
             Login
           </Button>
         </Form.Group>

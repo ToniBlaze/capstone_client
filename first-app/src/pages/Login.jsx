@@ -13,7 +13,7 @@ export default function Login() {
   };
   return (
     <Container className="py-2">
-      <Button className="px-3 py-2 mt-3 mb-5 btn-secondary" onClick={backToHome}>
+      <Button className="px-3 py-2 mt-3 mb-5 btn-back" onClick={backToHome}>
         Back to Home
       </Button>
       <Row className="d-flex justify-content-center">

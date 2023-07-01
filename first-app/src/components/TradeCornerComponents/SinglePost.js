@@ -6,20 +6,20 @@ import { Link } from "react-router-dom";
 export default function SinglePost({ post }) {
   
   return (
-    <Col className="my-5 mx-auto" xs={11}>
+    <Col className="my-5 mx-auto" xs={11} md={10}>
       <Card className="d-flex flex-row flex-wrap justify-content-center border-0 rounded-4 overflow-hidden">
         <Col
           xs={12}
-          md={4}
+          md={6}
           className="overflow-hidden"
-          style={{ maxHeight: "250px", minHeight: "250px" }}>
+          style={{ maxHeight: "300px", minHeight: "300px" }}>
           <Card.Img
             className="img-fluid w-100 h-100"
             variant="left"
             src={post.cover}
           />
         </Col>
-        <Col xs={8}>
+        <Col xs={8} md={6}>
           <Card.Body>
             <Card.Title>{post.title}</Card.Title>
             <Card.Text>

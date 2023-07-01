@@ -147,7 +147,7 @@ export default function NewPost() {
   };
   return (
     <Container className="pb-5">
-      <Button className="px-3 py-2 my-4 btn-secondary" onClick={backToHome}>
+      <Button className="px-3 py-2 my-4 btn-back" onClick={backToHome}>
         Back to Home
       </Button>
       <h1 className="mt-4 mb-3 text-white ">Aggiungi il tuo Post</h1>
@@ -249,9 +249,8 @@ export default function NewPost() {
             ) : (
               // Mostra il pulsante "Invia" solo se isLoading è false
               <Button
-                className="mt-3"
+                className="mt-3 btn-submit-form"
                 onClick={handleSubmit}
-                variant="primary"
                 type="button">
                 Invia
               </Button>

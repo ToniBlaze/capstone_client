@@ -86,8 +86,8 @@ export default function RegisterForm() {
         ""
       )}
       <Form.Group className="my-4" controlId="formButton">
-        <Button variant="dark" onClick={handleSubmit}>
-          Submit
+        <Button className="btn-submit-form" onClick={handleSubmit}>
+          Sign in
         </Button>
       </Form.Group>
     </Form>
