@@ -29,10 +29,10 @@ export default function CommentArea({ id }) {
   }
 
   return (
-    <div>
-      <hr></hr>
+    <div className="mb-5">
+      <hr className="text-light"></hr>
       <div>
-        <p className="text-black fs-4 fw-semibold mb-0">Recensioni:</p>
+        <p className="text-white fs-4 mb-3 fw-semibold mb-0">Commenti:</p>
         <AddComment postId={postId} setCommentsCount={setCommentsCount} />
       </div>
       {comments.length > 0 ? (

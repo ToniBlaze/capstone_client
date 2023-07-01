@@ -13,8 +13,8 @@ export default function ErrorPage() {
     <Container>
       <Row>
         <Col className="my-5">
-          <div className="py-3 fs-3 fw-bold">*** Not Found ***</div>
-          <Button onClick={backToHome}>Back to Home</Button>
+          <div className="py-3 fs-3 fw-bold text-white">*** Not Found ***</div>
+          <Button className="btn-back" onClick={backToHome}>Back to Home</Button>
         </Col>
       </Row>
     </Container>

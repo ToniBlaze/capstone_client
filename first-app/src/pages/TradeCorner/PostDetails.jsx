@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import CommentArea from "../../components/TradeCornerComponents/CommentArea"
+import CommentArea from "../../components/TradeCornerComponents/CommentArea";
 
 //PAGINA (ROUTE) PRINCIPALE DEL LIBRO
 export default function PostDetails() {
@@ -33,45 +33,42 @@ export default function PostDetails() {
       });
   }, [id]);
 
-
   return (
     <Container fluid>
-      <Button className="px-4 py-2 my-4 btn-secondary" onClick={backToHome}>
+      <Button className="px-4 py-2 my-4 btn-back" onClick={backToHome}>
         Back to Home
       </Button>
       {post && (
         <>
           <Row>
-            <Col className="my-5">
-              <Row>
-                <h1 className="mb-4">{post.titolo}</h1>
-                <Col sm={4} className="mx-0">
-                  <img
-                    className="img-fluid img-custom-book-details"
-                    src={post.cover}
-                    alt="img-post"
-                  />
-                </Col>
-                <Col sm={7} className="text-secondary">
-                  <h4 className="mt-3">
-                    Autore: <b className="text-white">{post.author.name}</b>
-                  </h4>
-                  <h4 className="mt-3">
-                    Categoria: <b className="text-white">{post.category}</b>
-                  </h4>
-                  <h4 className="mt-3">
-                    Asset: <b className="text-white">{post.asset}</b>
-                  </h4>
+            <h1 className="mt-3 pb-2 text-light">{post.title}</h1>
+            <Col xs={12} className="mx-0  overflow-hidden">
+              <img
+                className="img-fluid img-book-details rounded-3"
+                src={post.cover}
+                alt="img-post"
+              />
+            </Col>
+            <Col xs={12} className="text-secondary mt-3">
+              <h4 className="mt-3">
+                Autore: <b className="text-white">{post.author.name}</b>
+              </h4>
+              <h4 className="mt-3">
+                Categoria: <b className="text-white">{post.category}</b>
+              </h4>
+              <h4 className="mt-3">
+                Asset: <b className="text-white">{post.asset}</b>
+              </h4>
 
-                  <p className="text-secondary mt-3">
-                    <i>{post.content}</i>
-                  </p>
-                </Col>
-              </Row>
+              <p className="text-secondary mt-3">
+                <i>{post.content}</i>
+              </p>
+            </Col>
+          </Row>
 
-              <Row>
-                <Col xs={12}><CommentArea id={id}/></Col>
-              </Row>
+          <Row>
+            <Col xs={12} className="mt-4">
+              <CommentArea id={id} />
             </Col>
           </Row>
         </>

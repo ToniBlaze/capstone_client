@@ -12,12 +12,12 @@ export default function UserPosts() {
   const [hasMorePosts, setHasMorePosts] = useState(true);
   const [error, setError] = useState(null);
 
+  const token = localStorage.getItem("userLogin");
+  const decodedToken = jwt_decode(token);
+  const userId = decodedToken.id;
+
   async function getUserPost() {
     try {
-      const token = localStorage.getItem("userLogin");
-      const decodedToken = jwt_decode(token);
-      const userId = decodedToken.id;
-
       const res = await axios.get(
         `http://localhost:3000/posts/user/${userId}?page=${page}`
       );
@@ -53,6 +53,10 @@ export default function UserPosts() {
 
   return (
     <Container>
+      <h3 className="text-light">Ciao {decodedToken.name}!</h3>
+      <h4 className="text-dark-emphasis">
+        Qua trovi tutte le idee che hai condiviso:
+      </h4>
       {error ? (
         <Alert key={"danger"} variant={"danger"}>
           {error}
@@ -63,7 +67,7 @@ export default function UserPosts() {
             dataLength={posts.length}
             next={getUserPost}
             hasMore={hasMorePosts}
-            loader={<h4>Loading...</h4>}
+            loader={<h4 className="text-light">Loading...</h4>}
             endMessage={
               <p style={{ textAlign: "center" }}>
                 <b className="text-primary">You have seen all posts!</b>

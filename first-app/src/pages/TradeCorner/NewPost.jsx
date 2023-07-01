@@ -216,7 +216,7 @@ export default function NewPost() {
                 Carica un'immagine:
               </Form.Label>
               <Form.Control
-                className="text-center"
+                className="text-center mb-0"
                 onChange={handleFileChange}
                 type="file"
                 name="uploadFile"
@@ -243,9 +243,16 @@ export default function NewPost() {
 
             {/* Mostra lo spinner durante la richiesta */}
             {isLoading ? (
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
+              <div className="p-0 m-0 d-flex align-items-center justify-content-center">
+                <div className="loader pb-5 mb-5">
+                  <div className="loader__bar"></div>
+                  <div className="loader__bar"></div>
+                  <div className="loader__bar"></div>
+                  <div className="loader__bar"></div>
+                  <div className="loader__bar"></div>
+                  <div className="loader__ball"></div>
+                </div>
+              </div>
             ) : (
               // Mostra il pulsante "Invia" solo se isLoading è false
               <Button

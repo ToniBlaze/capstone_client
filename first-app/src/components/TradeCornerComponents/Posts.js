@@ -59,7 +59,7 @@ export default function Posts() {
             dataLength={posts.length}
             next={getPosts}
             hasMore={hasMorePosts}
-            loader={<h4>Loading...</h4>}
+            loader={<h4 className="text-light">Loading...</h4>}
             endMessage={
               <p style={{ textAlign: "center" }}>
                 <b className="text-primary">You have seen all posts!</b>

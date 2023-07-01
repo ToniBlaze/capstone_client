@@ -65,7 +65,7 @@ export default function AddComment({ postId, setCommentsCount }) {
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="btn-submit-form" onClick={handleShow}>
         Aggiungi commento
       </Button>
 

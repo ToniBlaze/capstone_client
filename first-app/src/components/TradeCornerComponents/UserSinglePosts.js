@@ -6,20 +6,20 @@ import { Link } from "react-router-dom";
 export default function SinglePost({ post, deletePost }) {
   
   return (
-    <Col className="my-5 mx-auto" xs={11}>
-      <Card className="d-flex flex-row flex-wrap justify-content-center border-0 rounded-4 overflow-hidden">
+    <Col className="my-5 mx-auto" xs={11} md={10}>
+      <Card className="posts-border d-flex flex-row flex-wrap justify-content-center border-0 rounded-4 overflow-hidden">
         <Col
-          xs={12}
-          md={4}
+      xs={12}
+      lg={6}
           className="overflow-hidden"
-          style={{ maxHeight: "250px", minHeight: "250px" }}>
+          style={{ maxHeight: "300px", minHeight: "300px" }}>
           <Card.Img
             className="img-fluid w-100 h-100"
             variant="left"
             src={post.cover}
           />
         </Col>
-        <Col xs={8}>
+        <Col xs={8} lg={6}>
           <Card.Body>
             <Card.Title>{post.title}</Card.Title>
             <Card.Text>
@@ -36,9 +36,9 @@ export default function SinglePost({ post, deletePost }) {
             <Link
               className="text-decoration-none text-light"
               to={`/post/${post._id}`}>
-              <Button variant="primary mx-3">Leggi post</Button>
+              <Button className="btn-custom mt-4 mx-3">Leggi post</Button>
             </Link>
-            <Button variant="danger" onClick={() => deletePost(post._id)}>
+            <Button className="btn-delete mt-4 mx-3" onClick={() => deletePost(post._id)}>
               Elimina
             </Button>
           </Card.Body>

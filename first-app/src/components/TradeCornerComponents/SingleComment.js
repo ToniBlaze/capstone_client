@@ -20,7 +20,7 @@ export default function SingleComment({
 
   return (
     <Container className="my-4 p-1" index={key}>
-      <Row className="border-custom py-2 comments-border justify-content-center">
+      <Row className="py-2 comments-border justify-content-center">
         <Col xs={12} md={9} className="d-flex flex-wrap align-items-center">
           <Col xs={12} className="text-secondary">
             Autore: <b className="text-white">{item.author.name}</b>

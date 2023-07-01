@@ -5,7 +5,7 @@ export default function Jumbotron() {
   return (
     <Col className="jumbo-bg text-secondary py-5 text-center">
       <div className="py-5">
-        <h1 className="display-5 fw-bold text-white">Limitless TS</h1>
+        <h1 className="display-5 fw-bold text-white font-title">Limitless TS</h1>
         <div className="col-lg-8 mx-auto">
           <p className="fs-6 mb-4 text-white">
             Esplora il potenziale del trading automatico, senza competenze
