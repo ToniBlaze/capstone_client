@@ -508,7 +508,7 @@ html {
 /* IMG BOOK DETAIL */
 
 .img-book-details {
-  max-height: 80vh;
+  max-height: 85vh;
   width: 100%;
   border: 1px solid gainsboro;
 }
