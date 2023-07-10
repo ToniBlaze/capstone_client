@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 import Login from "../pages/Login";
 
 const useAuth = () => {
-  let token = localStorage.getItem("userLogin");
+  let token = sessionStorage.getItem("userLogin");
   return token;
 };
 

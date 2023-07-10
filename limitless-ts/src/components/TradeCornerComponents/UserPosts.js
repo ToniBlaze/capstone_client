@@ -12,7 +12,7 @@ export default function UserPosts() {
   const [hasMorePosts, setHasMorePosts] = useState(true);
   const [error, setError] = useState(null);
 
-  const token = localStorage.getItem("userLogin");
+  const token = sessionStorage.getItem("userLogin");
   const decodedToken = jwt_decode(token);
   const userId = decodedToken.id;
 

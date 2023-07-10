@@ -74,7 +74,7 @@ export default function NewPost() {
     setIsLoading(true);
 
     // Prendi il Token e destrutturalo per trovare dati utente
-    const token = localStorage.getItem("userLogin");
+    const token = sessionStorage.getItem("userLogin");
     const decodedToken = jwt_decode(token);
     console.log(decodedToken);
     const author = decodedToken.id;

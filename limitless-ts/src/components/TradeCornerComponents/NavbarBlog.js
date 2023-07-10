@@ -10,7 +10,7 @@ import logo from "../../assets/Logo.png";
 export default function NavbarBlog() {
 
   function handleLogout() {
-    localStorage.removeItem("userLogin");
+    sessionStorage.removeItem("userLogin");
   }
 
   return (

@@ -8,10 +8,10 @@ import { Link } from "react-router-dom";
 import logo from "../assets/Logo.png";
 
 export default function MyNav() {
-  const [token, setToken] = useState(localStorage.getItem("userLogin"));
+  const [token, setToken] = useState(sessionStorage.getItem("userLogin"));
 
   function handleLogout() {
-    localStorage.removeItem("userLogin");
+    sessionStorage.removeItem("userLogin");
     setToken(null);
   }
 

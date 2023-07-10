@@ -13,7 +13,7 @@ export default function Posts() {
   const [page, setPage] = useState(1);
   const [hasMorePosts, setHasMorePosts] = useState(true);
 
-  const token = localStorage.getItem("userLogin");
+  const token = sessionStorage.getItem("userLogin");
 
   const getPosts = async () => {
     try {

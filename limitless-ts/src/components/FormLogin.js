@@ -19,7 +19,7 @@ export default function FormLogin() {
     axios
       .post("http://localhost:3000/login", User)
       .then((response) => {
-        localStorage.setItem("userLogin", response.data);
+        sessionStorage.setItem("userLogin", response.data);
         navigate("/");
       })
       .catch((error) => {
