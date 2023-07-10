@@ -19,7 +19,7 @@ export default function SinglePost({ post, deletePost }) {
             src={post.cover}
           />
         </Col>
-        <Col xs={8} lg={6}>
+        <Col xs={8} lg={6} className="d-flex align-items-center">
           <Card.Body>
             <Card.Title>{post.title}</Card.Title>
             <Card.Text>

@@ -42,7 +42,7 @@ export default function PostDetails() {
         <>
           <Row>
             <h1 className="mt-3 pb-2 text-light">{post.title}</h1>
-            <Col xs={12} className="mx-0  overflow-hidden">
+            <Col xs={12} className="mx-0 px-5 overflow-hidden">
               <img
                 className="img-fluid img-book-details rounded-3"
                 src={post.cover}
@@ -60,9 +60,7 @@ export default function PostDetails() {
                 Asset: <b className="text-white">{post.asset}</b>
               </h4>
 
-              <p className="text-secondary mt-3">
-                <i>{post.content}</i>
-              </p>
+              <p className="text-light mt-4 px-5 mx-5 break-words">{post.content}</p>
             </Col>
           </Row>
 
