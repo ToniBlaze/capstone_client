@@ -35,11 +35,7 @@ export default function Posts() {
         setPage(page + 1);
       }
     } catch (err) {
-      console.log(err);
-      setError(err.response?.data || "An error occurred");
-      setTimeout(() => {
-        navigate("/login");
-      }, 1300);
+      setError(err.response.data || "An error occurred");
     }
   };
 

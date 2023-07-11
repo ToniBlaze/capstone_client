@@ -20,7 +20,7 @@ export default function FormLogin() {
       .post("http://localhost:3000/login", User)
       .then((response) => {
         sessionStorage.setItem("userLogin", response.data);
-        navigate("/");
+        navigate("/tradecorner");
       })
       .catch((error) => {
         setError(error.response.data);
