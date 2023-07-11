@@ -175,13 +175,14 @@ html {
 }
 
 .tridens-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.6)),
     url("assets/tridens.png");
   background-size: 100% 150%;
   background-position: center;
   background-repeat: no-repeat;
   height: 30em !important;
-
+  transition: all 0.4s cubic-bezier(.3,.89,.7,.76);
+  
   box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
 }
 
@@ -192,9 +193,15 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   height: 30em !important;
+  transition: all 0.4s cubic-bezier(.3,.89,.7,.76);
 
   box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
 }
+
+.tridens-bg:hover, .fidelis-bg:hover {
+  scale: 0.92;
+}
+
 
 .blog-banner-shadow {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;

@@ -12,21 +12,19 @@ export default function ProductsSection() {
       <Row className="align-items-center justify-content-center pt-3 px-md-5">
           <Col xs={12} sm={9} md={8} lg={5} xxl={4} className="m-4">
             <Card className="tridens-bg text-white p-5 d-flex justify-content-center rounded-4">
-              <Card.Title>Tridens</Card.Title>
-              <Card.Text>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+              <Card.Title className="fs-3">Tridens</Card.Title>
+              <Card.Text >
+                Strategia di breve periodo. <br></br>
+                Per chi è disposto a rischiare in cambio di rendimenti elevati.
               </Card.Text>
             </Card>
           </Col>
           <Col xs={12} sm={9} md={8} lg={5} xxl={4} className="m-4">
             <Card className="fidelis-bg text-white p-5 d-flex justify-content-center rounded-4">
-              <Card.Title>Fidelis</Card.Title>
+              <Card.Title className="fs-3">Fidelis</Card.Title>
               <Card.Text>
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+              Strategia di lungo periodo. <br></br>
+                Per chi cerca equilibrio tra rischio e rendimento.
               </Card.Text>
             </Card>
           </Col>
