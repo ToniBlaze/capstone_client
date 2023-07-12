@@ -10,7 +10,7 @@ export default function CardsSection() {
       <Container className="mt-4 pb-3">
         <div className="container px-3 py-5">
           <h2 className="pb-2 border-bottom">
-            Nel Trading ci sono sempre gli stessi problemi...
+            Nel Trading ci sono sempre gli stessi problemi
           </h2>
 
           <Row className="row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
@@ -18,7 +18,7 @@ export default function CardsSection() {
               <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 cards-shadow">
                 <Card.Body className="d-flex flex-column h-100 p-5 text-white text-shadow-1 justify-content-center align-items-center">
                   <Card.Title as="h3" className="display-7 lh-1 fw-bold">
-                    Le emozioni...
+                    Le emozioni
                   </Card.Title>
                 </Card.Body>
               </Card>
@@ -28,7 +28,7 @@ export default function CardsSection() {
               <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 cards-shadow">
                 <Card.Body className="d-flex flex-column h-100 p-5 text-white text-shadow-1 justify-content-center align-items-center">
                   <Card.Title as="h3" className="display-7 lh-1 fw-bold">
-                    Il 95% dei Trader perde soldi...
+                    Il 95% dei Trader perde soldi
                   </Card.Title>
                 </Card.Body>
               </Card>
@@ -38,7 +38,7 @@ export default function CardsSection() {
               <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 cards-shadow">
                 <Card.Body className="d-flex flex-column h-100 p-5 text-shadow-1 justify-content-center align-items-center">
                   <Card.Title as="h3" className="display-7 lh-1 fw-bold">
-                    Il tempo a grafico...
+                    Il tempo a grafico
                   </Card.Title>
                 </Card.Body>
               </Card>

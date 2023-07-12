@@ -5,8 +5,8 @@
 }
 
 #root,
-:root {
-  background-color: black;
+:root, .form-select-sm {
+  background-color: black !important;
 }
 
 #home {
