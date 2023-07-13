@@ -22,7 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-          {/* ***  ROTTE PROTETTE  *** */}
+          {/* ***  PROTECTED ROUTES  *** */}
         <Route element={<ProtectedRoutes/>}>
           <Route path="/tradecorner" element={<TradeCorner />} />
           <Route path="/post/:id" element={<PostDetails />} />
@@ -30,7 +30,7 @@ function App() {
           <Route path="/userposts" element={<UserPostsLayout />} />
         </Route>
 
-        {/* ***  ROTTA DI ERRORE  *** */}
+        {/* ***  ERROR ROUTE  *** */}
         <Route path="*" element={<ErrorPage />} />
         
       </Routes>

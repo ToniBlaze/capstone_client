@@ -64,7 +64,7 @@ html {
   background-repeat: no-repeat;
 }
 
-/* BOTTONE JUMBO */
+/* JUMBOTRON BUTTON */
 .btn-jumbo {
   text-transform: uppercase;
   background-color: rgb(0, 0, 0) !important;
@@ -89,9 +89,9 @@ html {
   color: rgb(4, 4, 38);
 }
 
-/* FINE BOTTONE JUMBO */
+/* END JUMBOTRON BUTTON */
 
-/* ALTRI BOTTONI */
+/* OTHER BUTTONS */
 
 .btn-custom {
   padding: 1.3em 3em;
@@ -168,7 +168,7 @@ html {
   transform: translateY(-7px);
 }
 
-/* FINE BOTTONI */
+/* END OTHER BUTTONS */
 
 .cards-shadow {
   box-shadow: rgb(41, 41, 41) 0px 20px 30px -10px;
@@ -216,7 +216,7 @@ html {
   box-shadow: 0 0 15px 2px rgba(255, 255, 255, 0.493);
 }
 
-/* BOTTONE NEWSLETTER */
+/* NEWS LETTER BUTTON */
 .cta {
   display: flex;
   padding: 4px 3px;
@@ -299,7 +299,7 @@ html {
   }
 }
 
-/* FINE BOTTONE NEWSLETTER */
+/* END NEWSLETTER BUTTON */
 
 .newsletter-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
@@ -310,7 +310,7 @@ html {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
-/* Icona UTENTE */
+/* USER Icon */
 .user-image {
   background-color: grey !important;
   height: 2.6rem;
@@ -523,7 +523,6 @@ html {
 }
 /*--- END SPINNER NEW POST */
 
-/* IMG BOOK DETAIL */
 
 .img-book-details {
   max-height: 85vh;
@@ -531,7 +530,6 @@ html {
   border: 1px solid gainsboro;
 }
 
-/*    FINE    */
 
 .break-words {
   word-wrap: break-word;

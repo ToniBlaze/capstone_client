@@ -13,23 +13,23 @@ export default function ChangeComment({
   const [obj, setObj] = useState({});
   const [error, setError] = useState(null);
 
-  // CHIUSURA MODALE
+  // OPEN MODAL
   function handleClose(e) {
     setShow(false);
     setObj({});
     setError(null);
   }
 
-  //APERTURA DEL MODALE
+  // CLOSE MODAL
   function handleShow(e) {
     setShow(true);
     e.preventDefault();
     e.stopPropagation();
   }
 
-  // PRENDI I DATI DEL FORM
+  // GET FORM VALUE
   const handlerChange = (e) => {
-    //verifica i value in tutti gli input e restituisce il valore
+    // checks the values in all inputs and returns the value
     let { name, value } = e.target;
     setObj({
       ...obj,
@@ -39,23 +39,23 @@ export default function ChangeComment({
     console.log(e.target.name);
   };
 
-  // GESTISCI INVIO FORM
+  // HANDLE FORM SUBMIT
   async function handleSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
 
-    // Verifica presenza "content"
+    // Check "content"
     if (!obj.content) {
       setError("Inserisci commento!");
       return;
     }
 
-    // Prendi il Token e destrutturalo per trovare dati utente
+    // Take the Token and deconstruct it to find user data
     const token = sessionStorage.getItem("userLogin");
     const decodedToken = jwt_decode(token);
     const author = decodedToken.id;
 
-    // Aggiungi l'autore all'oggetto dei dati
+    // Add author to data object
     const newData = {
       ...obj,
       author: author,
@@ -80,7 +80,7 @@ export default function ChangeComment({
         Modifica
       </Button>
 
-      {/* MODALE */}
+      {/* MODAL */}
       <Modal show={show} onClick={handleClose}>
         <Modal.Header onClick={(e) => e.stopPropagation()}>
           <Modal.Title>Modifica commento</Modal.Title>

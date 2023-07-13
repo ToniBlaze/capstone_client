@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Register() {
   const navigate = useNavigate();
 
-  //Torna ad Home
+  // Back to Home
   const backToHome = () => {
     navigate("/");
     window.scrollTo(0, 0);

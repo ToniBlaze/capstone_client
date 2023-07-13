@@ -18,7 +18,7 @@ export default function Newsletter() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // CHIUSURA MODALE
+  // CLOSE MODAL
   function handleClose(e) {
     setShow(false);
     setObj({});
@@ -26,16 +26,16 @@ export default function Newsletter() {
     setMessage("");
   }
 
-  //APERTURA DEL MODALE
+  //OPEN MODAL
   function handleShow(e) {
     setShow(true);
     e.preventDefault();
     e.stopPropagation();
   }
 
-  // PRENDI I DATI DEL FORM
+  // GET FORM VALUE 
   const handlerChange = (e) => {
-    //verifica i value in tutti gli input e restituisce il valore
+    // checks the values in all inputs and returns the value
     let { name, value } = e.target;
     setObj({
       ...obj,
@@ -43,12 +43,12 @@ export default function Newsletter() {
     });
   };
 
-  // GESTISCI INVIO FORM
+  // HANDLE FORM SUBMISSION
   async function handleSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
 
-    // Verifica presenza "content"
+    // Check "content"
     if (!obj.to) {
       setError("Email mancante!");
       return;
@@ -152,7 +152,7 @@ export default function Newsletter() {
               />
             </Form.Group>
 
-            {/* Spinner e messaggi */}
+            {/* Spinner and message */}
             {loading ? (
               <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>

@@ -48,7 +48,7 @@ export default function MyNav() {
           </Nav>
 
           <Nav className="ms-auto">
-            {/* Se presente TOKEN mostra LOGOUT  */}
+            {/* If TOKEN is present, shows LOGOUT  */}
             {!token ? (
               <>
                 <Link className="nav-link" to="/register">

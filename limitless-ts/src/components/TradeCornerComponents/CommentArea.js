@@ -8,7 +8,7 @@ export default function CommentArea({ id }) {
   const [commentsCount, setCommentsCount] = useState(0);
   let postId = id;
 
-  // Chiamata per Dati dei COMMENTI del POST
+  // Call for POST COMMENT DATA
   useEffect(() => {
     axios
       .get(`http://localhost:3000/posts/${id}/comments`)

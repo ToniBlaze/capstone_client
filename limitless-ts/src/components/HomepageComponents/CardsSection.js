@@ -6,7 +6,7 @@ import TradingImage from "../../assets/tradingimage.jpg";
 export default function CardsSection() {
   return (
     <>
-      {/* PRIMA SEZIONE --> Cards Problemi */}
+      {/* FIRST SECTION  --> Cards Problems */}
       <Container className="mt-4 pb-3">
         <div className="container px-3 py-5">
           <h2 className="pb-2 border-bottom">
@@ -47,7 +47,7 @@ export default function CardsSection() {
         </div>
       </Container>
 
-      {/* SECONDA SEZIONE --> Accordion Soluzioni */}
+      {/* SECOND SECTION  --> Accordion Solutions */}
       <Container className="my-5">
         <h2 className="pb-2 mx-5 border-bottom">
           Il Trading algoritmico è la soluzione che cerchi!

@@ -11,7 +11,7 @@ export default function SingleComment({
 }) {
   console.log(item.author._id);
 
-  // Prendi il Token e destrutturalo per trovare dati utente
+  // Take the Token and deconstruct it to find user data
   const token = sessionStorage.getItem("userLogin");
   const decodedToken = jwt_decode(token);
   console.log(decodedToken.id);

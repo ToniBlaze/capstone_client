@@ -6,22 +6,22 @@ import axios from "axios";
 
 import CommentArea from "../../components/TradeCornerComponents/CommentArea";
 
-//PAGINA (ROUTE) PRINCIPALE DEL LIBRO
+// MAIN PAGE (ROUTE) OF THE BOOK
 export default function PostDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const [post, setPost] = useState(null);
   const navigate = useNavigate();
 
-  //Prendi "ID" da paramentro della ROUTE
+  // Get 'ID' from ROUTE parameter
   let { id } = useParams();
 
-  //Torna ad Home
+  // Back to HOme
   const backToHome = () => {
     navigate("/tradecorner");
     window.scrollTo(0, 0);
   };
 
-  // Chiamata per Dati del POST
+
   useEffect(() => {
     setIsLoading(true);
 

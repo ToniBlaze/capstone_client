@@ -19,13 +19,13 @@ export default function NewPost() {
   const [Error, setError] = useState({});
   const navigate = useNavigate();
 
-  //Torna alla Home
+  // Back to Home
   const backToHome = () => {
     navigate("/tradecorner");
     window.scrollTo(0, 0);
   };
 
-  // Gestore del cambio di input
+  // Handle input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setObj({
@@ -34,18 +34,18 @@ export default function NewPost() {
     });
   };
 
-  // Gestore del cambio di file
+  // Handle file change
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
 
   // *************************************
-  // Gestore dell'invio del modulo
+  // Handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Validazione dei campi
+    // Validation fields
     const { title, content, category, asset } = obj;
     const newErrors = {};
 
@@ -69,23 +69,23 @@ export default function NewPost() {
       return;
     }
 
-    // Nel frattempo che fa richiesta mostra SPINNER
+    // Set Spinner TRUE
     setIsLoading(true);
 
-    // Prendi il Token e destrutturalo per trovare dati utente
+    // Take the Token and deconstruct it to find user data
     const token = sessionStorage.getItem("userLogin");
     const decodedToken = jwt_decode(token);
     console.log(decodedToken);
     const author = decodedToken.id;
     console.log(author);
 
-    // Aggiungi l'autore all'oggetto dei dati
+    // Add author to data object
     const newData = {
       ...obj,
       author: author,
     };
 
-    // Carica il file su CLOUDINARY
+    // Upload file to CLOUDINARY
     const data = new FormData();
     data.append("uploadFile", selectedFile);
     axios
@@ -96,15 +96,15 @@ export default function NewPost() {
       })
       .then((res) => {
         // *************
-        // SE TUTTO VA BENE.....
+        // IF ALL IT'S OK.....
 
-        // Setta l'URL dell'immagine uploadata come URL dell'immagine del post
+        // Set the URL of the uploaded image as the URL of the post image
         const newObj = {
           ...newData,
           cover: res.data.path,
         };
 
-        // Chiamata POST per inserire l'oggetto nel database
+        // Call POST
         return axios
           .post("http://localhost:3000/posts", newObj, {
             headers: {
@@ -112,13 +112,13 @@ export default function NewPost() {
             },
           })
           .then((res) => {
-            // togli alert Erroe
+            // remove ERROR alert
             setError("");
 
-            // Se tutto ok, allora togli SPINNER
+            // Remove SPINNER
             setIsLoading(false);
 
-            // Se tutto ok, allora setta Alert visibile
+            // Set Success Alert TRUE
             setSuccessAlert(true);
 
             setTimeout(() => {
@@ -129,7 +129,7 @@ export default function NewPost() {
           .catch((error) => {
             setError(error.response.data);
 
-            // Se errore, allora togli SPINNER
+            // If ERROR, remove Spinner
             setIsLoading(false);
 
             console.error(error);
@@ -138,7 +138,7 @@ export default function NewPost() {
       .catch((error) => {
         setError(error.response.data);
 
-        // Se errore, allora togli SPINNER
+        // If ERROR, remove Spinner
         setIsLoading(false);
 
         console.error(error);
@@ -224,14 +224,14 @@ export default function NewPost() {
             </Form.Group>
             {Error.file && <Alert variant="danger">{Error.file}</Alert>}
 
-            {/* ALERT DI SUCCESSO */}
+            {/* SUCCESS ALERT */}
             {successAlert && (
               <Alert variant="success" className="my-4">
                 Post inserito con successo! Verrei rendirizzato a breve..
               </Alert>
             )}
 
-            {/* ALERT ERRORE DA BACKEND */}
+            {/* ERROR ALERT */}
             {Error.error ? (
               <Alert key={"danger"} variant={"danger"}>
                 {Error.error}
@@ -240,7 +240,7 @@ export default function NewPost() {
               ""
             )}
 
-            {/* Mostra lo spinner durante la richiesta */}
+            {/* Show Spinner */}
             {isLoading ? (
               <div className="p-0 m-0 d-flex align-items-center justify-content-center">
                 <div className="loader pb-5 mb-5">
@@ -253,7 +253,6 @@ export default function NewPost() {
                 </div>
               </div>
             ) : (
-              // Mostra il pulsante "Invia" solo se isLoading è false
               <Button
                 className="mt-3 btn-submit-form"
                 onClick={handleSubmit}
