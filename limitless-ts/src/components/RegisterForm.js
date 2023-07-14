@@ -19,7 +19,6 @@ export default function RegisterForm() {
     axios
       .post("http://localhost:3000/register", User)
       .then((response) => {
-        console.log(response);
         navigate("/");
       })
       .catch((error) => {

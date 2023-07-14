@@ -36,7 +36,7 @@ export default function ChangeComment({
       [name]: value,
     });
 
-    console.log(e.target.name);
+
   };
 
   // HANDLE FORM SUBMIT
@@ -60,7 +60,7 @@ export default function ChangeComment({
       ...obj,
       author: author,
     };
-    console.log(newData);
+
 
     axios
       .put(
@@ -68,7 +68,6 @@ export default function ChangeComment({
         newData
       )
       .then((res) => {
-        console.log(res);
         setCommentsCount((prevCount) => prevCount + 1);
         handleClose();
       });

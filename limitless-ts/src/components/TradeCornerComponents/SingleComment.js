@@ -9,12 +9,10 @@ export default function SingleComment({
   deleteComment,
   setCommentsCount,
 }) {
-  console.log(item.author._id);
 
   // Take the Token and deconstruct it to find user data
   const token = sessionStorage.getItem("userLogin");
   const decodedToken = jwt_decode(token);
-  console.log(decodedToken.id);
 
   const isCommentOfUser = item.author._id === decodedToken.id;
 

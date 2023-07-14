@@ -31,7 +31,7 @@ export default function AddComment({ postId, setCommentsCount }) {
       [name]: value,
     });
 
-    console.log(e.target.name);
+
   };
 
   // HANDLE FORM SUMBIT
@@ -57,7 +57,6 @@ export default function AddComment({ postId, setCommentsCount }) {
     };
 
     axios.post(`http://localhost:3000/posts/${postId}`, newData).then((res) => {
-      console.log(res);
       setCommentsCount((prevCount) => prevCount + 1);
       handleClose();
     });

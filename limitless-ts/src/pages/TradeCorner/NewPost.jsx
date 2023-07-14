@@ -75,9 +75,8 @@ export default function NewPost() {
     // Take the Token and deconstruct it to find user data
     const token = sessionStorage.getItem("userLogin");
     const decodedToken = jwt_decode(token);
-    console.log(decodedToken);
     const author = decodedToken.id;
-    console.log(author);
+
 
     // Add author to data object
     const newData = {

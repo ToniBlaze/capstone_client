@@ -18,8 +18,6 @@ export default function Posts() {
 
   const token = sessionStorage.getItem("userLogin");
 
-  console.log("QUERY: ", query);
-  console.log("CATEGORY: ", category);
 
   const filterPosts = (post) => {
     if (query && category) {

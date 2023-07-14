@@ -33,7 +33,6 @@ export default function UserPosts() {
         setPage(page + 1);
       }
     } catch (err) {
-      console.log(err.response.data.error);
       setError(err.response.data);
     }
   }

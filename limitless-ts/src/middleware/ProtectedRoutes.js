@@ -23,7 +23,6 @@ const useSession = () => {
           navigate("/login", { replace: true });
         }
       } catch (error) {
-        console.log(error);
         navigate("/login", { replace: true });
       }
     };
@@ -37,9 +36,6 @@ const useSession = () => {
 export default function ProtectedRoutes() {
   const session = useSession();
   const isAuthorized = !!session;
-
-  console.log(session);
-  console.log(isAuthorized);
 
   return isAuthorized ? <Outlet /> : <Login />;
 }
