@@ -1,5 +1,10 @@
 import React from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
+import Team1 from "../../assets/team1.png"
+import Team2 from "../../assets/team2.png"
+import Team3 from "../../assets/team3.png"
+
+
 
 export default function Team() {
   return (
@@ -44,7 +49,7 @@ export default function Team() {
           <Col>
             <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
               <Card.Img
-                src="https://images.unsplash.com/photo-1686781483909-a5fb625ca043?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=465&q=80"
+                src={Team1}
                 alt="Foto del membro"
               />
               <Card.Body className="d-flex flex-column h-100 p-5 text-white text-shadow-1 justify-content-center align-items-center">
@@ -58,7 +63,7 @@ export default function Team() {
           <Col>
             <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
               <Card.Img
-                src="https://images.unsplash.com/photo-1686781483909-a5fb625ca043?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=465&q=80"
+               src={Team2}
                 alt="Foto del membro"
               />
               <Card.Body className="d-flex flex-column h-100 p-5 text-white text-shadow-1 justify-content-center align-items-center">
@@ -72,7 +77,7 @@ export default function Team() {
           <Col>
             <Card className="card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
               <Card.Img
-                src="https://images.unsplash.com/photo-1686781483909-a5fb625ca043?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=465&q=80"
+                src={Team3}
                 alt="Foto del membro"
               />
               <Card.Body className="d-flex flex-column h-100 p-5 text-white text-shadow-1 justify-content-center align-items-center">
